@@ -40,7 +40,7 @@
 }
 
 .product-item__name {
-    font-size: 24px;
+    font-size: 20px;
     color: var(--blue);
 }
 
@@ -61,7 +61,7 @@
     border: none;
     color: white;
     font-size: 20px;
-    padding: 6px 12px;
+    padding: 6px 10px;
 }
 
 .product-item__buy-button:hover {
