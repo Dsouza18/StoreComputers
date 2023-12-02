@@ -18,4 +18,8 @@ export class CarrinhoComponent implements OnInit{
   ngOnInit(): void {
       this.itensCarrinho = this.carrinhoService.obtemCarrinho();
   }
+
+  get totalCarrinho(): number {
+    return this.itensCarrinho.reduce((total, item) => total + (item.preco * item.quantidade), 0);
+  }
 }

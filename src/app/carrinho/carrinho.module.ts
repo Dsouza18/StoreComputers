@@ -16,4 +16,8 @@ import { FormsModule } from '@angular/forms';
     FormsModule
   ]
 })
-export class CarrinhoModule { }
+export class CarrinhoModule { 
+
+
+ 
+}
