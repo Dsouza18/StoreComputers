@@ -28,11 +28,11 @@ jobs:
         cache: 'npm'
     - run: npm ci
 
-    -name: Run tests
+    - name: Run tests
       run: npm run test:ci
 
-    -name: build
-    run: npm run build
+    - name: build
+      run: npm run build
     
     
   
