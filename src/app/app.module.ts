@@ -1,38 +1,20 @@
-import { LOCALE_ID, NgModule } from '@angular/core';
+import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
-
-import ptBr from '@angular/common/locales/pt';
-import { registerLocaleData } from '@angular/common';
-
 import { FooterComponent } from './footer/footer.component';
-import { AppRoutingModule } from './app-routing.module';
-import { NaoEncontradoComponent } from './nao-encontrado/nao-encontrado.component';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-
-import { MatSnackBarModule } from "@angular/material/snack-bar";
-import { RouterModule } from '@angular/router';
-
-registerLocaleData(ptBr);
+import { RouterModule } from '@angular/router'; // Necessário para o router-outlet
 
 @NgModule({
   declarations: [
     AppComponent,
-    HeaderComponent,
-    NaoEncontradoComponent,
-    FooterComponent, // Apenas componentes, diretivas ou pipes devem estar aqui
+    HeaderComponent, // Certifique-se de que está declarado
+    FooterComponent  // Certifique-se de que está declarado
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule,
-    BrowserAnimationsModule,
-    MatSnackBarModule,
-    RouterModule, // Módulos Angular são importados aqui
+    RouterModule.forRoot([])// Necessário para utilizar <router-outlet>
   ],
-  providers: [{ provide: LOCALE_ID, useValue: 'pt' }],
-  bootstrap: [AppComponent],
+  bootstrap: [AppComponent]
 })
-
-export class AppModule {}
+export class AppModule { }
