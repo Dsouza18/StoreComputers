@@ -11,15 +11,24 @@ export class CarrinhoService {
   constructor() { }
 
   obtemCarrinho(): IProdutoCarrinho[] {
-    const carrinhoString = localStorage.getItem("carrinho") || "";
+    const carrinhoString = localStorage.getItem("carrinho");
+    
+    // Verifica se o carrinhoString está vazio ou não
+    if (!carrinhoString) {
+      this.itens = []; // Se não houver dados no localStorage, inicializa o carrinho vazio
+      return this.itens;
+    }
+  
     try {
-      this.itens = JSON.parse(carrinhoString) || [];
+      this.itens = JSON.parse(carrinhoString) || []; // Caso contrário, tenta parsear a string
     } catch (error) {
       console.error("Erro ao analisar o carrinho do localStorage:", error);
-      this.itens = [];
+      this.itens = []; // Se ocorrer erro no parse, inicializa o carrinho vazio
     }
+  
     return this.itens;
   }
+  
 
   adicionarAoCarrinho(produto: IProdutoCarrinho) {
     this.itens.push(produto);
